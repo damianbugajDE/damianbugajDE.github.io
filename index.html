@@ -1,514 +1,125 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
+<html lang="pl"> 
+    <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VWTYD84PJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VWTYD84PJZ');
+</script>
+        <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ucutiegjzm");
+</script>
+        <meta name="google-site-verification" content="bg5ixov-c8JcIEuzUFiwzOeh_DzaDWzF6o0Idv2qEyY" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEGA Quiz: Programowanie Niskopoziomowe</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #1a237e;
-            margin-bottom: 10px;
-        }
-        p.subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .score-box {
-            background: #fff;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2c3e50;
-            position: sticky;
-            top: 10px;
-            z-index: 100;
-            border: 1px solid #e1e4e8;
-        }
-        .question-card {
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-            display: none; 
-            border: 1px solid #e1e4e8;
-        }
-        .question-card.active {
-            display: block;
-            animation: fadeIn 0.3s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .question-text {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .option-btn {
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            background: #fff;
-            cursor: pointer;
-            text-align: left;
-            transition: all 0.2s;
-            font-size: 1em;
-            color: #495057;
-            font-weight: 500;
-        }
-        .option-btn:hover {
-            background-color: #f8f9fa;
-            border-color: #dee2e6;
-        }
-        .option-btn:active {
-            transform: scale(0.99);
-        }
-        .correct {
-            background-color: #d1e7dd !important;
-            border-color: #badbcc !important;
-            color: #0f5132 !important;
-        }
-        .incorrect {
-            background-color: #f8d7da !important;
-            border-color: #f5c6cb !important;
-            color: #842029 !important;
-        }
-        .explanation {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e7f1ff;
-            border-left: 5px solid #0d6efd;
-            border-radius: 4px;
-            font-size: 0.95em;
-            display: none;
-            line-height: 1.5;
-        }
-        button.next-btn {
-            margin-top: 25px;
-            padding: 12px 30px;
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-            display: none;
-            float: right;
-            transition: background 0.2s;
-        }
-        button.next-btn:hover {
-            background-color: #0b5ed7;
-        }
-        .final-screen {
-            text-align: center;
-            display: none;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .final-score {
-            font-size: 3em;
-            font-weight: bold;
-            color: #0d6efd;
-            margin: 20px 0;
-        }
-    </style>
+
+    <title>Skuteczny Marketing i Strony WWW | Agencja XYZ</title>
+
+    <meta name="description" content="Zwiększ zyski z Agencją XYZ! Oferujemy skuteczne pozycjonowanie SEO, nowoczesne strony WWW i kampanie reklamowe. Zamów bezpłatną wycenę projektu już dziś.">
+
+    <meta name="keywords" content="agencja interaktywna, pozycjonowanie stron, usługi SEO, web design, marketing online, tworzenie stron www">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+    <div class="logo">Firma XYZ</div>
+    <nav>
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Oferta</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <h1>Programowanie Niskopoziomowe</h1>
-    <p class="subtitle">Pełna baza pytań ze zdjęć (v2.0)</p>
-    
-    <div class="score-box" id="scoreBox">
-        Pytanie: <span id="currentQ">1</span>/<span id="totalQ">20</span> | Punkty: <span id="score">0</span>
+<section class="hero">
+    <h1>Nowoczesna Agencja Interaktywna dla Twojego Biznesu</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis quis nunc faucibus posuere.</p>
+    <button>Zobacz więcej</button>
+</section>
+
+<section class="about">
+    <h2>Kim jesteśmy?</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae metus sit amet lorem ultrices
+       fermentum. Donec eget mauris eget odio sodales commodo non non est.</p>
+    <img src="https://picsum.photos/500/300?random=1" alt="Zespół Agencji XYZ przy pracy"> </section>
+
+<section class="services">
+    <h2>Co robimy?</h2>
+
+    <div class="service">
+        <h3>SEO i Pozycjonowanie</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laborum vel maiores,
+           explicabo minima alias quibusdam repellat!</p>
+        <img src="https://picsum.photos/300/200?random=2" alt="Wykresy wzrostu SEO">
     </div>
 
-    <div id="quiz-container">
-        </div>
-
-    <div class="final-screen" id="finalScreen">
-        <h2>Koniec egzaminu!</h2>
-        <p>Twój wynik końcowy:</p>
-        <div class="final-score"><span id="finalScore">0</span> / <span id="finalTotal">0</span></div>
-        <p id="feedbackText"></p>
-        <button onclick="location.reload()" class="next-btn" style="display:inline-block; float:none;">Spróbuj ponownie</button>
+    <div class="service">
+        <h3>Marketing Online</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora magni, pariatur inventore
+           laborum esse officiis fuga?</p>
+        <img src="https://picsum.photos/300/200?random=3" alt="Strategia marketingowa">
     </div>
 
-<script>
-    // Baza pytań zadeklarowana jako tablica obiektów
-    const questions = [
-        // --- ARCHITEKTURA I HISTORIA ---
-        {
-            q: "Procesory Intel 8086 mogły zaadresować pamięć o rozmiarze:",
-            options: ["64 KiB", "1 MiB", "16 MiB", "4 GiB"],
-            correct: 1,
-            desc: "8086 posiadał 20-bitową szynę adresową (2^20 = 1 MiB)."
-        },
-        {
-            q: "Procesory Intel 8080 mogły zaadresować pamięć o rozmiarze:",
-            options: ["4 KiB", "16 KiB", "64 KiB", "1 MiB"],
-            correct: 2,
-            desc: "Intel 8080 był 8-bitowy z 16-bitową szyną adresową (2^16 = 65536 bajtów = 64 KiB)."
-        },
-        {
-            q: "Ile bajtów mieściła kolejka instrukcji procesora 8088?",
-            options: ["4", "6", "8", "12"],
-            correct: 0,
-            desc: "8086 miał kolejkę 6-bajtową, a 8088 (z węższą szyną danych) miał kolejkę 4-bajtową."
-        },
-        {
-            q: "Ile bitowe rejestry posiadały procesory Intel 4004?",
-            options: ["4-bitowe", "8-bitowe", "16-bitowe", "32-bitowe"],
-            correct: 0,
-            desc: "Intel 4004 był pierwszym 4-bitowym mikroprocesorem."
-        },
-        {
-            q: "Pierwszy mikroprocesor (1970r.) był opracowany do:",
-            options: ["Kalkulatora", "Terminala komputerowego", "Samolotu F14", "Sterowania ramieniem"],
-            correct: 0,
-            desc: "Intel 4004 powstał na zamówienie firmy Busicom do kalkulatora."
-        },
-        {
-            q: "Tryb chroniony po raz pierwszy Intel wprowadził w procesorze:",
-            options: ["80186", "80286", "80386", "Pentium"],
-            correct: 1,
-            desc: "80286 wprowadził 16-bitowy tryb chroniony."
-        },
-        {
-            q: "Wykonywanie spekulatywne po raz pierwszy Intel zastosował w:",
-            options: ["80486", "Pentium", "Pentium Pro", "Core 2 Duo"],
-            correct: 2,
-            desc: "Architektura P6 (Pentium Pro) wprowadziła wykonywanie Out-of-Order i spekulatywne."
-        },
-        {
-            q: "Pierwszy procesor Intela wyposażony w instrukcje AVX to:",
-            options: ["Pentium 4", "Core 2 Duo", "Sandy Bridge", "Haswell"],
-            correct: 2,
-            desc: "AVX zadebiutowało w architekturze Sandy Bridge (2011)."
-        },
-        {
-            q: "W procesorach Skylake Intel po raz pierwszy wprowadził:",
-            options: ["Rejestry 64-bitowe", "Dwa rodzaje rdzeni", "Instrukcje AVX-512", "Instrukcje SSE 4.2"],
-            correct: 2,
-            desc: "AVX-512 pojawiło się w procesorach serwerowych Skylake-SP oraz w niektórych wersjach desktop (HEDT)."
-        },
-        {
-            q: "W procesorze Alder Lake Intel po raz pierwszy wprowadził:",
-            options: ["Rejestry 64-bitowe", "Pięciostopniowy potok", "Dwa rodzaje rdzeni (big.LITTLE)", "Instrukcje AVX-512"],
-            correct: 2,
-            desc: "Architektura hybrydowa: P-cores (Performance) i E-cores (Efficient)."
-        },
-        {
-            q: "Ile rejestrów ZMM posiadają procesory Intel w trybie 64-bitowym?",
-            options: ["8", "16", "32", "64"],
-            correct: 2,
-            desc: "AVX-512 rozszerza liczbę rejestrów wektorowych do 32 (ZMM0-ZMM31)."
-        },
-        {
-            q: "Rejestry MMX są częścią:",
-            options: ["Rejestrów XMM", "Rejestrów ogólnego przeznaczenia", "Rejestrów koprocesora (FPU)", "Rejestrów segmentowych"],
-            correct: 2,
-            desc: "Rejestry MMX (MM0-MM7) są mapowane na rejestry stosu koprocesora (st0-st7), co uniemożliwia jednoczesne używanie FPU i MMX."
-        },
-        {
-            q: "Superskalarność wynika z:",
-            options: ["Wykonywania instrukcji w potoku", "Wykonywania kilku instrukcji jednocześnie (równolegle)", "Redukcji liczby rozkazów", "Wykonywania spekulatywnego"],
-            correct: 1,
-            desc: "Superskalarność to zdolność procesora do wysyłania wielu instrukcji do wielu jednostek wykonawczych w jednym cyklu zegara."
-        },
+    <div class="service">
+        <h3>Web Design</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, omnis.</p>
+        <img src="https://picsum.photos/300/200?random=4" alt="Projektowanie stron www">
+    </div>
+</section>
 
-        // --- ASEMBLER I INSTRUKCJE ---
-        {
-            q: "Która instrukcja umożliwia operację typu: 5*a + 13?",
-            options: ["madd", "lea", "imul", "add"],
-            correct: 1,
-            desc: "LEA (Load Effective Address) pozwala na: baza + indeks*skala + przesunięcie."
-        },
-        {
-            q: "Która z instrukcji umożliwia obliczenie modulo 16?",
-            options: ["sar", "shr", "and", "div"],
-            correct: 2,
-            desc: "Modulo potęgi 2 to operacja AND z maską (x % 16 == x & 15). 15 to 0Fh (00001111)."
-        },
-        {
-            q: "Która instrukcja umożliwia dzielenie przez 8 (z zachowaniem znaku)?",
-            options: ["btc", "sbb", "sar", "shr"],
-            correct: 2,
-            desc: "SAR (Shift Arithmetic Right) przesuwa bity w prawo kopiując bit znaku."
-        },
-        {
-            q: "Do wyzerowania najmłodszego bitu równego 1 służy instrukcja (BMI1):",
-            options: ["popcnt", "lzcnt", "bextr", "blsr"],
-            correct: 3,
-            desc: "BLSR: Resetuje najniższy ustawiony bit."
-        },
-        {
-            q: "Która z instrukcji NIE korzysta z flag C, C2 i C0?",
-            options: ["ficom", "fcom", "fxam", "fstsw"],
-            correct: 2,
-            desc: "FXAM (Examine) ustawia flagi C0-C3 w zależności od typu liczby w ST(0), ale nie 'korzysta' z nich w sensie warunkowym jak skoki, tylko je ustawia."
-        },
-        {
-            q: "Która instrukcja zmienia flagę ZF?",
-            options: ["mov", "lea", "fucompp", "xchg"],
-            correct: 2,
-            desc: "Instrukcje przesłania danych (MOV, LEA) zazwyczaj nie zmieniają flag. Instrukcje porównania (FUCOMPP - float) zmieniają je."
-        },
-        {
-            q: "Która instrukcja NIE zmienia flagi Carry (CF)?",
-            options: ["add", "sub", "dec", "neg"],
-            correct: 2,
-            desc: "INC i DEC modyfikują flagi arytmetyczne (ZF, OF, SF), ale zachowują CF."
-        },
-        {
-            q: "Która z instrukcji dla liczb ze znakiem przesyła dla warunku 'mniejsze lub równe'?",
-            options: ["cmovb", "cmovle", "cmovl", "cmovna"],
-            correct: 1,
-            desc: "LE = Less or Equal (Signed). BE = Below or Equal (Unsigned)."
-        },
-        {
-            q: "Która instrukcja może zmienić rejestr CS?",
-            options: ["mov", "pop", "lea", "jmp"],
-            correct: 3,
-            desc: "Rejestr CS (Code Segment) można zmienić tylko instrukcjami sterującymi przepływem (jmp far, call far, ret, int)."
-        },
-        {
-            q: "Przerwanie programowe wywołuje instrukcja:",
-            options: ["call", "int", "iret", "enter"],
-            correct: 1,
-            desc: "INT n - wywołuje przerwanie programowe o numerze n."
-        },
-        {
-            q: "Ile bajtów mieści się w rejestrze R8D?",
-            options: ["1", "2", "4", "8"],
-            correct: 2,
-            desc: "R8 - 64 bity, R8D (Doubleword) - 32 bity = 4 bajty, R8W - 16 bitów, R8B - 8 bitów."
-        },
-        
-        // --- SIMD / AVX ---
-        {
-            q: "Ile bajtów mieści się w rejestrze YMM?",
-            options: ["16", "32", "64", "128"],
-            correct: 1,
-            desc: "YMM to 256 bitów = 32 bajty."
-        },
-        {
-            q: "Ile podwójnych słów (DWORD, 32-bit) zawiera się w rejestrze YMM?",
-            options: ["4", "8", "16", "32"],
-            correct: 1,
-            desc: "256 bitów / 32 bity = 8."
-        },
-        {
-            q: "Do ilu bajtów wyrównania adresu wymaga instrukcja 'vmovdqa ymm4, tablica'?",
-            options: ["8", "16", "32", "64"],
-            correct: 2,
-            desc: "Końcówka 'a' (aligned) dla YMM wymaga wyrównania 32-bajtowego."
-        },
-        {
-            q: "Operację przesłania z niewyrównanej pamięci realizuje instrukcja AVX:",
-            options: ["vmovdqa", "vmovdqu", "vmovaps", "vmaskmovdqu"],
-            correct: 1,
-            desc: "vmovdqu (UnAligned)."
-        },
-        {
-            q: "Która operacja konwertuje liczbę całkowitą na liczbę pojedynczej precyzji?",
-            options: ["vcvtsd2ss", "vcvtss2sd", "vcvtsi2ss", "vcvtss2si"],
-            correct: 2,
-            desc: "si (Signed Integer) -> 2 (to) -> ss (Scalar Single)."
-        },
-        {
-            q: "Która operacja konwertuje wektor double na wektor float?",
-            options: ["vcvtsd2ss", "vcvtpd2ps", "vcvtps2pd", "vcvtsi2ss"],
-            correct: 1,
-            desc: "pd (Packed Double) -> ps (Packed Single)."
-        },
-        {
-            q: "Instrukcja dodawania sąsiednich liczb rzeczywistych podwójnej precyzji (Horizontal Add) to:",
-            options: ["vaddpd", "vhaddpd", "vsumpd", "vmulpd"],
-            correct: 1,
-            desc: "HADD = Horizontal Add (dodaje np. a1+a2 i a3+a4)."
-        },
-        {
-            q: "Operację mieszania (blendowania) podwójnych słów z dwóch źródeł realizuje:",
-            options: ["vshufpd", "vpblendd", "vpackusdb", "vinsertf128"],
-            correct: 1,
-            desc: "vpblendd miesza dwordy (32-bit) według maski."
-        },
-        {
-            q: "Instrukcja AVX obliczająca odwrotność pierwiastka ze SKALARA (single) to:",
-            options: ["vsqrtss", "vrsqrtss", "vrsqrtps", "vdpps"],
-            correct: 1,
-            desc: "rsqrt (reciprocal sqrt) + ss (scalar single)."
-        },
-        {
-            q: "Operację wektorową AVX dla liczb podwójnej precyzji: v1 = -v1 + v2*v3 realizuje:",
-            options: ["vfmadd132pd", "vfnmadd132pd", "vfmsub132pd", "vaddpd"],
-            correct: 1,
-            desc: "vFNmadd... (Fused Negative Multiply Add). Neguje wynik mnożenia i dodaje (lub w tym przypadku: neguje składnik dodawany)."
-        },
-        {
-            q: "Prefix LOCK może odnosić się tylko do instrukcji, których argument:",
-            options: ["celu jest w pamięci", "źródła jest w pamięci", "celu jest rejestrem", "jest natychmiastowy"],
-            correct: 0,
-            desc: "LOCK blokuje szynę pamięci, więc ma sens tylko gdy zapisujemy do pamięci (destination operand is memory)."
-        },
+<section class="blog">
+    <h2>Najnowsze artykuły</h2>
 
-        // --- ANALIZA KODU ---
-        {
-            q: "Jaki będzie wynik w EAX? <br> mov eax, 0eca87531h <br> xor eax, 0f00ff00fh <br> shl eax, 0ch <br> bsr eax, eax",
-            options: ["0eca78531h", "0a7853100h", "0000001fh", "00000001h"],
-            correct: 2,
-            desc: "BSR (Bit Scan Reverse) zwraca indeks najstarszego ustawionego bitu. Wynik to mała liczba (indeks 0-31)."
-        },
-        {
-            q: "Jaki będzie wynik w EAX? <br> mov eax, 87654321h <br> sar eax, 4 <br> btr eax, 1fh <br> xor eax, 0ff000033h",
-            options: ["87765401h", "43b21901h", "0f8765401h", "88765432h"],
-            correct: 0,
-            desc: "1. sar zachowuje znak (F...), 2. btr zeruje bit 31 (F->7), 3. xor zmienia 7 na 8... Wynik: 87765401h."
-        },
-        {
-            q: "W którym trybie adresowania wartość argumentu nie jest pobierana z pamięci danych?",
-            options: ["Pośrednim-rejestrowym", "Natychmiastowym", "Bezpośrednim", "Indeksowym"],
-            correct: 1,
-            desc: "W trybie natychmiastowym (Immediate) wartość jest zaszyta bezpośrednio w kodzie instrukcji, a nie w pamięci danych."
-        }
-    ];
+    <article>
+        <h3>Jak skutecznie pozycjonować stronę?</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, molestiae!</p>
+        <a href="#">Czytaj więcej</a>
+    </article>
 
-    let currentQuestionIndex = 0;
-    let score = 0;
-    const container = document.getElementById('quiz-container');
-    const scoreSpan = document.getElementById('score');
-    const currentQSpan = document.getElementById('currentQ');
-    const totalQSpan = document.getElementById('totalQ');
-    const finalScreen = document.getElementById('finalScreen');
-    const scoreBox = document.getElementById('scoreBox');
+    <article>
+        <h3>Trendy w Web Designie 2025</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, molestiae!</p>
+        <a href="#">Czytaj więcej</a>
+    </article>
+</section>
 
-    totalQSpan.innerText = questions.length;
+<section class="portfolio">
+    <h2>Nasze Projekty</h2>
+    <div class="project">
+        <img src="https://picsum.photos/400/250?random=5" alt="Projekt strony dla klienta">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="project">
+        <img src="https://picsum.photos/400/250?random=6" alt="Kampania reklamowa">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+</section>
 
-    function renderQuestion(index) {
-        container.innerHTML = '';
-        const q = questions[index];
-        
-        const card = document.createElement('div');
-        card.className = 'question-card active';
+<section class="contact">
+    <h2>Skontaktuj się z nami</h2>
+    <form>
+        <input type="text" placeholder="Imię">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Wiadomość"></textarea>
+        <button>Wyślij</button>
+    </form>
+</section>
 
-        const qText = document.createElement('div');
-        qText.className = 'question-text';
-        qText.innerHTML = (index + 1) + ". " + q.q;
-        card.appendChild(qText);
-
-        const optionsDiv = document.createElement('div');
-        optionsDiv.className = 'options';
-
-        q.options.forEach((opt, i) => {
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.innerHTML = opt;
-            btn.onclick = () => checkAnswer(i, q.correct, btn, q.desc);
-            optionsDiv.appendChild(btn);
-        });
-
-        card.appendChild(optionsDiv);
-
-        const explanation = document.createElement('div');
-        explanation.className = 'explanation';
-        card.appendChild(explanation);
-
-        const nextBtn = document.createElement('button');
-        nextBtn.className = 'next-btn';
-        nextBtn.innerText = index === questions.length - 1 ? "Zakończ Egzamin" : "Następne pytanie";
-        nextBtn.onclick = () => nextQuestion();
-        card.appendChild(nextBtn);
-
-        container.appendChild(card);
-    }
-
-    function checkAnswer(selected, correct, btnElement, desc) {
-        const buttons = document.querySelectorAll('.option-btn');
-        buttons.forEach(b => b.disabled = true);
-
-        const explDiv = document.querySelector('.explanation');
-        explDiv.style.display = 'block';
-
-        if (selected === correct) {
-            btnElement.classList.add('correct');
-            score++;
-            scoreSpan.innerText = score;
-            explDiv.innerHTML = "<strong>Świetnie!</strong> " + desc;
-            explDiv.style.borderColor = "#0f5132";
-            explDiv.style.backgroundColor = "#d1e7dd";
-        } else {
-            btnElement.classList.add('incorrect');
-            buttons[correct].classList.add('correct');
-            explDiv.innerHTML = "<strong>Błąd.</strong> " + desc;
-            explDiv.style.borderColor = "#842029";
-            explDiv.style.backgroundColor = "#f8d7da";
-        }
-
-        document.querySelector('.next-btn').style.display = 'inline-block';
-    }
-
-    function nextQuestion() {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            currentQSpan.innerText = currentQuestionIndex + 1;
-            renderQuestion(currentQuestionIndex);
-        } else {
-            showFinalScreen();
-        }
-    }
-
-    function showFinalScreen() {
-        scoreBox.style.display = 'none';
-        container.style.display = 'none';
-        finalScreen.style.display = 'block';
-        
-        const finalScoreSpan = document.getElementById('finalScore');
-        finalScoreSpan.innerText = score;
-        document.getElementById('finalTotal').innerText = questions.length;
-        
-        const percentage = (score / questions.length) * 100;
-        const feedback = document.getElementById('feedbackText');
-        
-        if(percentage >= 90) {
-            feedback.innerHTML = "🏆 <strong>Genialnie!</strong> Jesteś gotowy na 5.0!";
-            feedback.style.color = "#198754";
-        } else if (percentage >= 50) {
-            feedback.innerHTML = "👍 <strong>Nieźle.</strong> Ale powtórz materiał.";
-            feedback.style.color = "#fd7e14";
-        } else {
-            feedback.innerHTML = "📚 <strong>Musisz jeszcze pocwiczyć.</strong>";
-            feedback.style.color = "#dc3545";
-        }
-    }
-
-    // Start
-    renderQuestion(0);
-
-</script>
+<footer>
+    <p>© 2025 Firma XYZ. Wszelkie prawa zastrzeżone.</p>
+</footer>
 
 </body>
 </html>
