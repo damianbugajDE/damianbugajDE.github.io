@@ -1,125 +1,75 @@
 <!DOCTYPE html>
-<html lang="pl"> 
-    <head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VWTYD84PJZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VWTYD84PJZ');
-</script>
-        <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ucutiegjzm");
-</script>
-        <meta name="google-site-verification" content="bg5ixov-c8JcIEuzUFiwzOeh_DzaDWzF6o0Idv2qEyY" />
+<html lang="pl">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Skuteczny Marketing i Strony WWW | Agencja XYZ</title>
-
-    <meta name="description" content="Zwiększ zyski z Agencją XYZ! Oferujemy skuteczne pozycjonowanie SEO, nowoczesne strony WWW i kampanie reklamowe. Zamów bezpłatną wycenę projektu już dziś.">
-
-    <meta name="keywords" content="agencja interaktywna, pozycjonowanie stron, usługi SEO, web design, marketing online, tworzenie stron www">
-
+    <title>StalTech - Inżynieria Materiałowa</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <div class="logo">Firma XYZ</div>
-    <nav>
-        <ul>
-            <li><a href="#">Start</a></li>
-            <li><a href="#">O nas</a></li>
-            <li><a href="#">Oferta</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Kontakt</a></li>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-industry"></i> StalTech</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Start</a></li>
+            <li><a href="#calc">Kalkulator</a></li>
+            <li><a href="#weather">Monitoring</a></li>
+            <li><a href="#contact">Kontakt</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
-</header>
 
-<section class="hero">
-    <h1>Nowoczesna Agencja Interaktywna dla Twojego Biznesu</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae felis quis nunc faucibus posuere.</p>
-    <button>Zobacz więcej</button>
-</section>
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-down">
+            <h1>Obróbka Cieplna Stali</h1>
+            <p>Precyzyjne zarządzanie mikrostrukturą dla maksymalnej wytrzymałości.</p>
+        </div>
+    </section>
 
-<section class="about">
-    <h2>Kim jesteśmy?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae metus sit amet lorem ultrices
-       fermentum. Donec eget mauris eget odio sodales commodo non non est.</p>
-    <img src="https://picsum.photos/500/300?random=1" alt="Zespół Agencji XYZ przy pracy"> </section>
+    <section id="calc" class="content-section">
+        <div class="card" data-aos="fade-up">
+            <h2><i class="fas fa-microscope"></i> Kalkulator Twardości</h2>
+            <p>Konwersja HRB (Rockwell) na HB (Brinell) dla stali.</p>
+            <div class="input-group">
+                <input type="number" id="hrbInput" placeholder="Wartość HRB">
+            </div>
+            <div class="result-box">
+                Wynik: <span id="hbResult">---</span> HB
+            </div>
+        </div>
+    </section>
 
-<section class="services">
-    <h2>Co robimy?</h2>
+    <section id="weather" class="content-section">
+        <div class="card" data-aos="zoom-in">
+            <h2><i class="fas fa-cloud-sun"></i> Warunki Atmosferyczne</h2>
+            <p>Wpisz miasto, aby sprawdzić ryzyko korozji w hucie.</p>
+            <div class="input-group">
+                <input type="text" id="cityInput" placeholder="np. Częstochowa">
+                <button id="getWeather">Sprawdź parametry</button>
+            </div>
+            <div id="weatherResult"></div>
+        </div>
+    </section>
 
-    <div class="service">
-        <h3>SEO i Pozycjonowanie</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laborum vel maiores,
-           explicabo minima alias quibusdam repellat!</p>
-        <img src="https://picsum.photos/300/200?random=2" alt="Wykresy wzrostu SEO">
-    </div>
+    <section id="contact" class="content-section">
+        <div class="card" data-aos="fade-up">
+            <h2><i class="fas fa-envelope"></i> Konsultacje</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Imię i Nazwisko" required>
+                <input type="email" id="email" placeholder="Email służbowy" required>
+                <div id="emailError" class="error-msg"></div>
+                <textarea id="message" placeholder="Opisz problem materiałowy..." minlength="10"></textarea>
+                <button type="submit">Wyślij do laboratorium</button>
+            </form>
+        </div>
+    </section>
 
-    <div class="service">
-        <h3>Marketing Online</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora magni, pariatur inventore
-           laborum esse officiis fuga?</p>
-        <img src="https://picsum.photos/300/200?random=3" alt="Strategia marketingowa">
-    </div>
-
-    <div class="service">
-        <h3>Web Design</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, omnis.</p>
-        <img src="https://picsum.photos/300/200?random=4" alt="Projektowanie stron www">
-    </div>
-</section>
-
-<section class="blog">
-    <h2>Najnowsze artykuły</h2>
-
-    <article>
-        <h3>Jak skutecznie pozycjonować stronę?</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, molestiae!</p>
-        <a href="#">Czytaj więcej</a>
-    </article>
-
-    <article>
-        <h3>Trendy w Web Designie 2025</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, molestiae!</p>
-        <a href="#">Czytaj więcej</a>
-    </article>
-</section>
-
-<section class="portfolio">
-    <h2>Nasze Projekty</h2>
-    <div class="project">
-        <img src="https://picsum.photos/400/250?random=5" alt="Projekt strony dla klienta">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </div>
-    <div class="project">
-        <img src="https://picsum.photos/400/250?random=6" alt="Kampania reklamowa">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </div>
-</section>
-
-<section class="contact">
-    <h2>Skontaktuj się z nami</h2>
-    <form>
-        <input type="text" placeholder="Imię">
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Wiadomość"></textarea>
-        <button>Wyślij</button>
-    </form>
-</section>
-
-<footer>
-    <p>© 2025 Firma XYZ. Wszelkie prawa zastrzeżone.</p>
-</footer>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
