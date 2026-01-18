@@ -8,7 +8,6 @@
 
 body { background: var(--bg); color: #333; overflow-x: hidden; }
 
-/* Navbar */
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 0 10%; height: 70px; background: white;
@@ -24,7 +23,6 @@ body { background: var(--bg); color: #333; overflow-x: hidden; }
 .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
 .hamburger span { width: 25px; height: 3px; background: var(--primary); }
 
-/* Hero */
 .hero {
     height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1350&q=80');
@@ -32,7 +30,7 @@ body { background: var(--bg); color: #333; overflow-x: hidden; }
     display: flex; align-items: center; justify-content: center; color: white; text-align: center;
 }
 
-/* Sekcje i Karty */
+
 .content-section { padding: 80px 10%; display: flex; justify-content: center; }
 
 .card {
@@ -62,7 +60,7 @@ button:hover { background: #2980b9; transform: translateY(-2px); }
 
 .error-msg { color: #e74c3c; font-size: 0.8rem; margin-top: -5px; }
 
-/* Mobile */
+
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     .nav-links {
