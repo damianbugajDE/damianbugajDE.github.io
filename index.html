@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StalTech - Inżynieria Materiałowa</title>
+    <title>StalTech - Portal Inżynierii Materiałowej</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -15,6 +15,7 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="#home">Start</a></li>
             <li><a href="#calc">Kalkulator</a></li>
+            <li><a href="#orders">Zlecenia</a></li>
             <li><a href="#weather">Monitoring</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
@@ -25,17 +26,17 @@
 
     <section id="home" class="hero">
         <div class="hero-content" data-aos="fade-down">
-            <h1>Obróbka Cieplna Stali</h1>
-            <p>Precyzyjne zarządzanie mikrostrukturą dla maksymalnej wytrzymałości.</p>
+            <h1>Inżynieria Stali i Metali</h1>
+            <p>Cyfrowe narzędzia wspomagające procesy obróbki cieplnej i kontroli jakości.</p>
         </div>
     </section>
 
     <section id="calc" class="content-section">
-        <div class="card" data-aos="fade-up">
+        <div class="card" data-aos="fade-right">
             <h2><i class="fas fa-microscope"></i> Kalkulator Twardości</h2>
-            <p>Konwersja HRB (Rockwell) na HB (Brinell) dla stali.</p>
+            <p>Konwersja HRB (Rockwell) na HB (Brinell) dla stali konstrukcyjnej.</p>
             <div class="input-group">
-                <input type="number" id="hrbInput" placeholder="Wartość HRB">
+                <input type="number" id="hrbInput" placeholder="Wartość w skali HRB">
             </div>
             <div class="result-box">
                 Wynik: <span id="hbResult">---</span> HB
@@ -43,13 +44,25 @@
         </div>
     </section>
 
+    <section id="orders" class="content-section">
+        <div class="card" data-aos="fade-left">
+            <h2><i class="fas fa-search"></i> System LIMS - Szukaj Zlecenia</h2>
+            <p>Wpisz ID zamówienia (1-200), aby pobrać status z bazy.</p>
+            <div class="input-group">
+                <input type="number" id="orderId" placeholder="ID zlecenia (np. 7)">
+                <button id="searchOrder">Szukaj w bazie</button>
+            </div>
+            <div id="orderResult"></div>
+        </div>
+    </section>
+
     <section id="weather" class="content-section">
         <div class="card" data-aos="zoom-in">
-            <h2><i class="fas fa-cloud-sun"></i> Warunki Atmosferyczne</h2>
-            <p>Wpisz miasto, aby sprawdzić ryzyko korozji w hucie.</p>
+            <h2><i class="fas fa-cloud-sun"></i> Warunki Korozyjne</h2>
+            <p>Monitoring parametrów otoczenia dla magazynów stali.</p>
             <div class="input-group">
-                <input type="text" id="cityInput" placeholder="np. Częstochowa">
-                <button id="getWeather">Sprawdź parametry</button>
+                <input type="text" id="cityInput" placeholder="Lokalizacja (np. Częstochowa)">
+                <button id="getWeather">Pobierz dane</button>
             </div>
             <div id="weatherResult"></div>
         </div>
@@ -57,13 +70,13 @@
 
     <section id="contact" class="content-section">
         <div class="card" data-aos="fade-up">
-            <h2><i class="fas fa-envelope"></i> Konsultacje</h2>
+            <h2><i class="fas fa-envelope"></i> Zapytanie Techniczne</h2>
             <form id="contactForm">
                 <input type="text" id="name" placeholder="Imię i Nazwisko" required>
                 <input type="email" id="email" placeholder="Email służbowy" required>
                 <div id="emailError" class="error-msg"></div>
-                <textarea id="message" placeholder="Opisz problem materiałowy..." minlength="10"></textarea>
-                <button type="submit">Wyślij do laboratorium</button>
+                <textarea id="message" placeholder="Opisz problem (min. 10 znaków)..." minlength="10" required></textarea>
+                <button type="submit">Wyślij do Laboratorium</button>
             </form>
         </div>
     </section>
