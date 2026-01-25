@@ -1,0 +1,82 @@
+:root {
+  --bg-color: #050a14;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --accent-cyan: #00f2ff;
+  --accent-blue: #0077ff;
+  --text-main: #e0e6ed;
+  --text-dim: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Glassmorphism Header */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #112240 0%, #050a14 100%);
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  background: linear-gradient(to right, var(--accent-cyan), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+/* Responsive Grid for Content */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 80px 0;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-cyan);
+}
+
+.card h3 {
+  color: var(--accent-cyan);
+  margin-bottom: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid var(--card-bg);
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
