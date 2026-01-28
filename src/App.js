@@ -59,16 +59,13 @@ const NuclearChatbot = () => {
 const handleSend = async () => {
   if (!input.trim() || isLoading) return;
 
-  // Pobieramy klucz (pamiętaj, że na Netlify musi być w Env Vars)
-  const apiKey = process.env.REACT_APP_GEMINI_KEY;
-  if (!apiKey) {
-    console.error("Brak klucza API!");
-    return;
-  }
+  // Używamy Twojego klucza z Netlify
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_KEY);
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  // Używamy sprawdzonych nazw modeli
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  // ZMIANA: Wpisujemy dokładnie to, co znalazłeś na stronie Gemini
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash"
+  });
 
   const userMsg = { text: input, isBot: false };
   setMessages(prev => [...prev, userMsg]);
@@ -76,15 +73,15 @@ const handleSend = async () => {
   setIsLoading(true);
 
   try {
-    const chat = model.startChat({ history: [] });
-    const result = await chat.sendMessage(input);
+    // Używamy najprostszej metody generowania
+    const result = await model.generateContent(input);
     const response = await result.response;
     const text = response.text();
 
     setMessages(prev => [...prev, { text: text, isBot: true }]);
   } catch (error) {
-    console.error("Błąd API:", error);
-    setMessages(prev => [...prev, { text: "Reaktor AI napotkał problem. Spróbuj za chwilę!", isBot: true }]);
+    console.error("Szczegółowy błąd:", error);
+    setMessages(prev => [...prev, { text: "Błąd połączenia z modelem 2.0. Sprawdź klucz!", isBot: true }]);
   } finally {
     setIsLoading(false);
   }
