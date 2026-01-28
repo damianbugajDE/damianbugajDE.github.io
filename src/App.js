@@ -1,5 +1,5 @@
-import { createJSClient } from '@google/genai';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { createClient } from '@google/genai';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -59,8 +59,8 @@ const NuclearChatbot = () => {
 const handleSend = async () => {
   if (!input.trim() || isLoading) return;
 
-  // 2. Inicjalizacja klienta (używamy zmiennej z Netlify)
-  const client = createJSClient({
+  // 2. Inicjalizacja (pamiętaj o REACT_APP_GEMINI_KEY w Netlify)
+  const client = createClient({
     apiKey: process.env.REACT_APP_GEMINI_KEY
   });
 
@@ -70,19 +70,19 @@ const handleSend = async () => {
   setIsLoading(true);
 
   try {
-    // 3. Wywołanie modelu Gemini 2.5 Flash
+    // 3. Wywołanie Gemini 2.5 Flash
     const result = await client.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: [{ role: 'user', parts: [{ text: input }] }],
     });
 
-    // W nowym SDK wynik jest dostępny bezpośrednio w 'value' lub przez funkcję text()
-    const text = result.value.content.parts[0].text;
+    // Pobranie tekstu z odpowiedzi
+    const responseText = result.response.text();
 
-    setMessages(prev => [...prev, { text: text, isBot: true }]);
+    setMessages(prev => [...prev, { text: responseText, isBot: true }]);
   } catch (error) {
-    console.error("Szczegółowy błąd:", error);
-    setMessages(prev => [...prev, { text: "Błąd połączenia. Sprawdź logi!", isBot: true }]);
+    console.error("Błąd API:", error);
+    setMessages(prev => [...prev, { text: "Błąd połączenia z reaktorem AI. Spróbuj za chwilę.", isBot: true }]);
   } finally {
     setIsLoading(false);
   }
