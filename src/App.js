@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/genai";
 import React, { useState, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
@@ -60,8 +60,8 @@ const handleSend = async () => {
   if (!input.trim() || isLoading) return;
 
   // 1. Definiujemy zmienne TUTAJ, wewnątrz funkcji, żeby uniknąć błędów no-undef
-  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_KEY || "TWÓJ_KLUCZ_API_LOKALNY");
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }, { apiVersion: "v1" });
+  const client = new CreateManager({ apiKey: process.env.REACT_APP_GEMINI_KEY });
+  const modelName = 'gemini-2.5-flash'; // Używamy najnowszego modelu z Twojego pakietu
 
   const userMsg = { text: input, isBot: false };
   setMessages(prev => [...prev, userMsg]);
@@ -69,18 +69,16 @@ const handleSend = async () => {
   setIsLoading(true);
 
   try {
-    // 2. Teraz 'model' jest już zdefiniowany w tej samej funkcji, błąd zniknie
-    const result = await model.generateContent({
-      contents: [{ role: "user", parts: [{ text: input }] }],
+    const result = await client.models.generateContent({
+      model: modelName,
+      contents: [{ role: 'user', parts: [{ text: input }] }],
     });
 
-    const response = await result.response;
-    const text = response.text();
-
+    const text = result.response.text();
     setMessages(prev => [...prev, { text: text, isBot: true }]);
   } catch (error) {
     console.error("Szczegółowy błąd:", error);
-    setMessages(prev => [...prev, { text: "Błąd połączenia. Sprawdź klucz API!", isBot: true }]);
+    setMessages(prev => [...prev, { text: "Błąd połączenia z Gemini 2.5. Sprawdź klucz!", isBot: true }]);
   } finally {
     setIsLoading(false);
   }
