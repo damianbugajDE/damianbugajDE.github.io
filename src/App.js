@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createClient } from '@google/genai';
+import googleGenAI from '@google/genai';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -60,7 +60,7 @@ const handleSend = async () => {
   if (!input.trim() || isLoading) return;
 
   // 2. Inicjalizacja (pamiętaj o REACT_APP_GEMINI_KEY w Netlify)
-  const client = createClient({
+  const client = googleGenAI.createClient({
     apiKey: process.env.REACT_APP_GEMINI_KEY
   });
 
