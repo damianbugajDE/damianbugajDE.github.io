@@ -1,3 +1,11 @@
-# https://www.robotstxt.org/robotstxt.html
+# Pozwól wszystkim robotom na indeksowanie strony
 User-agent: *
-Disallow:
+Allow: /
+
+# Zablokuj indeksowanie niepotrzebnych plików systemowych (opcjonalnie)
+Disallow: /README.md
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Wskaż robotom lokalizację mapy strony (zmień na swój adres)
+Sitemap: https://damianbugajde.github.io/sitemap.xml
