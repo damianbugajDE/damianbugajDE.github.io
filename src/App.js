@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import googleGenAI from '@google/genai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -59,10 +59,16 @@ const NuclearChatbot = () => {
 const handleSend = async () => {
   if (!input.trim() || isLoading) return;
 
-  // 2. Inicjalizacja (pamiętaj o REACT_APP_GEMINI_KEY w Netlify)
-  const client = googleGenAI.createClient({
-    apiKey: process.env.REACT_APP_GEMINI_KEY
-  });
+  // Pobieramy klucz (pamiętaj, że na Netlify musi być w Env Vars)
+  const apiKey = process.env.REACT_APP_GEMINI_KEY;
+  if (!apiKey) {
+    console.error("Brak klucza API!");
+    return;
+  }
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+  // Używamy sprawdzonych nazw modeli
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const userMsg = { text: input, isBot: false };
   setMessages(prev => [...prev, userMsg]);
@@ -70,19 +76,15 @@ const handleSend = async () => {
   setIsLoading(true);
 
   try {
-    // 3. Wywołanie Gemini 2.5 Flash
-    const result = await client.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: [{ role: 'user', parts: [{ text: input }] }],
-    });
+    const chat = model.startChat({ history: [] });
+    const result = await chat.sendMessage(input);
+    const response = await result.response;
+    const text = response.text();
 
-    // Pobranie tekstu z odpowiedzi
-    const responseText = result.response.text();
-
-    setMessages(prev => [...prev, { text: responseText, isBot: true }]);
+    setMessages(prev => [...prev, { text: text, isBot: true }]);
   } catch (error) {
     console.error("Błąd API:", error);
-    setMessages(prev => [...prev, { text: "Błąd połączenia z reaktorem AI. Spróbuj za chwilę.", isBot: true }]);
+    setMessages(prev => [...prev, { text: "Reaktor AI napotkał problem. Spróbuj za chwilę!", isBot: true }]);
   } finally {
     setIsLoading(false);
   }
