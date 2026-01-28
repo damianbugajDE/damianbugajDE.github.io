@@ -1,3 +1,4 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import React, { useState, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
@@ -48,45 +49,56 @@ const CarbonCalculator = () => {
 const NuclearChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Witaj! Jestem AI-Atom. Chcesz wiedzieć więcej o technologii SMR lub bezpieczeństwie?", isBot: true }
+    { text: "Witaj! Jestem AI-Atom. Zapytaj mnie o technologię SMR, fuzję lub bezpieczeństwo jądrowe.", isBot: true }
   ]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  // MIEJSCE NA TWÓJ KLUCZ (Wklej go w cudzysłów poniżej)
+  // 1. Inicjalizacja poza funkcją (RAZ)
+const handleSend = async () => {
+  if (!input.trim() || isLoading) return;
 
-    const userMsg = { text: input, isBot: false };
-    setMessages(prev => [...prev, userMsg]);
-    setInput("");
+  // 1. Definiujemy zmienne TUTAJ, wewnątrz funkcji, żeby uniknąć błędów no-undef
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_KEY || "TWÓJ_KLUCZ_API_LOKALNY");
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }, { apiVersion: "v1" });
 
-    setTimeout(() => {
-      let botResponse = "Ciekawe pytanie! Energetyka jądrowa to przyszłość bezemisyjnej Polski. Mogę Ci opowiedzieć o kalkulatorze CO2 lub o reaktorach SMR.";
-      if (input.toLowerCase().includes("smr")) botResponse = "SMR (Small Modular Reactors) to małe reaktory o mocy do 300 MW, które można budować szybciej niż tradycyjne elektrownie.";
-      if (input.toLowerCase().includes("bezpieczeństwo")) botResponse = "Dzisiejsze reaktory III generacji posiadają systemy pasywne, które działają grawitacyjnie, bez konieczności zasilania zewnętrznego.";
+  const userMsg = { text: input, isBot: false };
+  setMessages(prev => [...prev, userMsg]);
+  setInput("");
+  setIsLoading(true);
 
-      setMessages(prev => [...prev, { text: botResponse, isBot: true }]);
-    }, 800);
-  };
+  try {
+    // 2. Teraz 'model' jest już zdefiniowany w tej samej funkcji, błąd zniknie
+    const result = await model.generateContent({
+      contents: [{ role: "user", parts: [{ text: input }] }],
+    });
+
+    const response = await result.response;
+    const text = response.text();
+
+    setMessages(prev => [...prev, { text: text, isBot: true }]);
+  } catch (error) {
+    console.error("Szczegółowy błąd:", error);
+    setMessages(prev => [...prev, { text: "Błąd połączenia. Sprawdź klucz API!", isBot: true }]);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className={`chatbot-wrapper ${isOpen ? 'active' : ''}`}>
-      <button
-        className="chatbot-trigger"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Otwórz czat z asystentem AI"
-      >
+      <button className="chatbot-trigger" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? '✕' : '⚛️'}
       </button>
-
       {isOpen && (
         <div className="chatbot-window">
           <div className="chat-header">Asystent Energetyki Jądrowej</div>
           <div className="chat-body">
             {messages.map((m, i) => (
-              <div key={i} className={`message ${m.isBot ? 'bot' : 'user'}`}>
-                {m.text}
-              </div>
+              <div key={i} className={`message ${m.isBot ? 'bot' : 'user'}`}>{m.text}</div>
             ))}
+            {isLoading && <div className="message bot typing">AI analizuje dane...</div>}
           </div>
           <div className="chat-footer">
             <input
@@ -94,9 +106,8 @@ const NuclearChatbot = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
               placeholder="Zapytaj o atom..."
-              aria-label="Wpisz wiadomość do bota"
             />
-            <button onClick={handleSend}>Wyślij</button>
+            <button onClick={handleSend} disabled={isLoading}>Wyślij</button>
           </div>
         </div>
       )}
