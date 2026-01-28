@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/genai";
+import { createJSClient } from '@google/genai';
 import React, { useState, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
@@ -59,9 +59,10 @@ const NuclearChatbot = () => {
 const handleSend = async () => {
   if (!input.trim() || isLoading) return;
 
-  // 1. Definiujemy zmienne TUTAJ, wewnątrz funkcji, żeby uniknąć błędów no-undef
-  const client = new CreateManager({ apiKey: process.env.REACT_APP_GEMINI_KEY });
-  const modelName = 'gemini-2.5-flash'; // Używamy najnowszego modelu z Twojego pakietu
+  // 2. Inicjalizacja klienta (używamy zmiennej z Netlify)
+  const client = createJSClient({
+    apiKey: process.env.REACT_APP_GEMINI_KEY
+  });
 
   const userMsg = { text: input, isBot: false };
   setMessages(prev => [...prev, userMsg]);
@@ -69,16 +70,19 @@ const handleSend = async () => {
   setIsLoading(true);
 
   try {
+    // 3. Wywołanie modelu Gemini 2.5 Flash
     const result = await client.models.generateContent({
-      model: modelName,
+      model: 'gemini-2.5-flash',
       contents: [{ role: 'user', parts: [{ text: input }] }],
     });
 
-    const text = result.response.text();
+    // W nowym SDK wynik jest dostępny bezpośrednio w 'value' lub przez funkcję text()
+    const text = result.value.content.parts[0].text;
+
     setMessages(prev => [...prev, { text: text, isBot: true }]);
   } catch (error) {
     console.error("Szczegółowy błąd:", error);
-    setMessages(prev => [...prev, { text: "Błąd połączenia z Gemini 2.5. Sprawdź klucz!", isBot: true }]);
+    setMessages(prev => [...prev, { text: "Błąd połączenia. Sprawdź logi!", isBot: true }]);
   } finally {
     setIsLoading(false);
   }
