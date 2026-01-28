@@ -166,21 +166,34 @@ function App() {
     <HelmetProvider>
       <div className="app-wrapper">
         <Helmet htmlAttributes={{ lang: 'pl' }}>
+          {/* Podstawowe Meta Tagi */}
           <title>Jądro Czystej Energii</title>
-          <meta name="description" content="Energetyka Jądrowa | Nowoczesne Kompendium" />
+          <meta name="description" content="Energetyka Jądrowa | Nowoczesne Kompendium Wiedzy i Bezpieczeństwa" />
           <link rel="canonical" href="https://damianbugajde.github.io/" />
 
+          {/* Facebook / Open Graph */}
           <meta property="og:url" content="https://damianbugajde.github.io/" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Jądro Czystej Energii" />
-          <meta property="og:description" content="Energetyka Jądrowa | Nowoczesne Kompendium" />
+          <meta property="og:description" content="Energetyka Jądrowa | Nowoczesne Kompendium Wiedzy i Bezpieczeństwa" />
           <meta property="og:image" content="https://damianbugajde.github.io/social-preview.jpg" />
+
+          {/* Twitter Meta Tags (TEGO BRAKOWAŁO) */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="damianbugajde.github.io" />
+          <meta property="twitter:url" content="https://damianbugajde.github.io/" />
+          <meta name="twitter:title" content="Jądro Czystej Energii" />
+          <meta name="twitter:description" content="Energetyka Jądrowa | Nowoczesne Kompendium Wiedzy i Bezpieczeństwa" />
+          <meta name="twitter:image" content="https://damianbugajde.github.io/social-preview.jpg" />
+
+          {/* Schema.org JSON-LD */}
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "EducationalOccupationalCredential",
-              "name": "Jądro Czystej Energii",
+              "@type": "Article",
+              "headline": "Jądro Czystej Energii - Kompendium o Atomie",
               "description": "Kompendium wiedzy o energetyce jądrowej i technologii SMR.",
+              "image": "https://damianbugajde.github.io/social-preview.jpg",
               "author": {
                 "@type": "Person",
                 "name": "Damian Bugaj"
