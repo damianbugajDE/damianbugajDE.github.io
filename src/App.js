@@ -64,7 +64,7 @@ const handleSend = async () => {
 
   // ZMIANA: Wpisujemy dokładnie to, co znalazłeś na stronie Gemini
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash"
+    model: "gemini-2.0-flash"
   });
 
   const userMsg = { text: input, isBot: false };
